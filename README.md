@@ -62,35 +62,81 @@ D7 = X Y Z
 ### PROGRAM 
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: santhana lakshmi.k
+RegisterNumber: 22003398 
 */
+For Encoder:
 
+module encode(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
 
+output a,b,c;
 
+input d0,d1,d2,d3,d4,d5,d6,d7;
 
+or(a,d4,d5,d6,d7);
 
+or(b,d2,d3,d6,d7);
+
+or(c,d1,d3,d5,d7);
+
+endmodule
+
+For Decoder:
+
+module decode(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+
+output d0,d1,d2,d3,d4,d5,d6,d7;
+
+input a,b,c;
+
+assign d0 = (~a&~b&~c);
+
+assign d1 = (~a&~b&c);
+
+assign d2 = (~a&b&~c);
+
+assign d3 = (~a&b&c);
+
+assign d4 = (a&~b&~c);
+
+assign d5 = (a&~b&c);
+
+assign d6 = (a&b&~c);
+
+assign d7 = (a&b&c);
+
+endmodule
 
 ### RTL LOGIC  
 
+ENCODER
 
+![214379229-9fcd4af0-2e57-4cd3-88de-b8907bdd8e84](https://user-images.githubusercontent.com/119475762/214640807-2decd58f-009e-49b6-a100-3c7caf698d70.png)
 
+DECODER
 
-
-
+![214379328-899a292c-4b95-4f97-9b07-5ceed9bb84b0](https://user-images.githubusercontent.com/119475762/214640896-6a4a5eed-1a7d-4acc-afd8-e0c731521028.png)
 
 
 ### TIMING DIGRAMS  
 
+ENCODER
 
+![214379455-7fd6c6a2-239b-474c-901e-693ff63f103f](https://user-images.githubusercontent.com/119475762/214640999-843f0c61-2eda-42e8-a710-990c6a86c29d.png)
 
+DECODER
 
+![214379903-a226e5e4-9a0c-4ae3-8ce4-41b0821a12f1](https://user-images.githubusercontent.com/119475762/214641100-bab511bf-4b9d-42c3-a50e-4646dbf1f790.png)
 
 ### TRUTH TABLE 
 
+Encoder
 
+![214380081-ae919d79-eb91-41a4-a184-1df8ec42b0a7](https://user-images.githubusercontent.com/119475762/214641257-a8af4f6b-aa10-41a1-9598-7759bcdf8c75.png)
 
+DECODER
 
-
+![214380148-9b05957c-9395-4776-b4b8-e518d61c41eb](https://user-images.githubusercontent.com/119475762/214641340-db9cc65e-61df-4993-8678-d137a3f57880.png)
 
 ### RESULTS 
+8 to 3 Encoder and 3to8 Decoder has been implemented by using verilog and its outputs are validated
